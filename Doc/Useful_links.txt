@@ -1,0 +1,8 @@
+#Downloads
+https://www.mongodb.com/download-center#atlas
+
+#Design
+https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1
+
+#Mongo Docs
+https://docs.mongodb.com/manual/tutorial/getting-started/
