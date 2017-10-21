@@ -2,7 +2,14 @@
 https://www.mongodb.com/download-center#atlas
 
 #Design
+https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-one-relationships-between-documents/
+https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-many-relationships-between-documents/
+https://docs.mongodb.com/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/
+
 https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1
+https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-2
+https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-3
+
 
 #Mongo Docs
 https://docs.mongodb.com/manual/tutorial/getting-started/
