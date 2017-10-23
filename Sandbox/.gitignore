@@ -47,4 +47,7 @@ dist/
 nbdist/
 .nb-gradle/
 
+#exclude properties
+*/properties
+
 # End of https://www.gitignore.io/api/java,maven
