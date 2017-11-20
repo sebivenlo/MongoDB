@@ -1,3 +1,13 @@
+# Contents
+To show you the power of mongodb we are going to explain
+what mongodb can do in specific use-cases. The first part
+will be used to explain how mongo “works” and the second
+part will be used for the interactive part. The use-cases are:
+
+- Pros and cons for scheme less databases
+- Getting data without complex joins
+- Framework for easier database access
+
 # Downloads
 ## MongoDB Atlas
 https://www.mongodb.com/download-center#atlas
@@ -17,9 +27,9 @@ https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-many-relationship
 https://docs.mongodb.com/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/
 
 ## Scheme design for MongoDB
-https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1
-https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-2
-https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-3
+https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1  
+https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-2  
+https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-3  
 
 # Mongo Docs
 https://docs.mongodb.com/manual/tutorial/getting-started/
