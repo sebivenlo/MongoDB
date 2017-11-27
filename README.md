@@ -146,7 +146,7 @@ This example uses an embedded document to portrait the one to many relationship.
 }
 ```
 
-The following example uses two collections a publisher and a book. A publisher has many books, the way it utilized here is by aggregating ObjectId's into an array. The downside to this is that there is no reference to the publisher anymore (this would be okay if it was many to many). A better way of solving this is by two way referencing.
+The following example uses two collections a publisher and a book. A publisher has many books, the way it is utilized here is by aggregating ObjectId's into an array. The downside to this is that it is an array without any bounds.
 
 ```
 {
@@ -175,7 +175,7 @@ The following example uses two collections a publisher and a book. A publisher h
 }
 ```
 
-The best solution for this problem would be referencing the publisher in the book by just the ObjectId. There will be some loss in read speed, but it will improve the write speed. 
+The best solution for this problem would be referencing the publisher in the book by just the ObjectId. There will be some loss in read speed, but it will improve the write speed.
 
 ```
 {
@@ -207,10 +207,26 @@ The best solution for this problem would be referencing the publisher in the boo
 ```
 
 #### Scheme Decisions
---------------------------- recap explain scheme choices ----------------
+To make the best decision in designing a scheme in MongoDB, [William Zola, Lead Technical Support Engineer at MongoDB](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-3) has a few rules of thumb.
 
+1. Favor embedding unless there is a compelling reason not to
+2. Needing to access an object on its own is a compelling reason not to embed it
+3. Arrays should not grow without bound. If there are more than a couple of hundred documents on the “many” side, don’t embed them; if there are more than a few thousand documents on the “many” side, don’t use an array of ObjectID references. High-cardinality arrays are a compelling reason not to embed.
+4. Don’t be afraid of application-level joins: if you index correctly and use the projection specifier (query that only returns the field specified and not the whole document) then application-level joins are barely more expensive than server-side joins in a relational database.
+5. Consider the write/read ratio when denormalizing. A field that will mostly be read and only seldom updated is a good candidate for denormalization: if you denormalize a field that is updated frequently then the extra work of finding and updating all the instances is likely to overwhelm the savings that you get from denormalizing.
+6. As always with MongoDB, how you model your data depends – entirely – on your particular application’s data access patterns. You want to structure your data to match the ways that your application queries and updates it.
+
+The main choices are as followed:
+
+- For “one-to-few”, you can use an array of embedded documents
+- For “one-to-many”, or on occasions when the “N” side must stand alone, you should use an array of references. You can also use a “parent-reference” on the “N” side if it optimizes your data access pattern.
+- For “one-to-squillions”, you should use a “parent-reference” in the document storing the “N” side.
+
+Once you’ve decided on the overall structure of the data, then you can, if you choose, denormalize data across multiple documents, by either denormalizing data from the “One” side into the “N” side, or from the “N” side into the “One” side. You’d do this only for fields that are frequently read, get read much more often than they get updated, and where you don’t require strong consistency, since updating a denormalized value is slower, more expensive, and is not atomic.
 
 ## Indexes
+
+
 
 # Setting up a MongoDB connection
 
