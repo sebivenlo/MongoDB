@@ -21,7 +21,6 @@ part will be used for the interactive part. The use-cases are:
     - Spring Mongo
 
 # Introduction MongoDB
-
 ## Scheme Design
 ### When to use an embedded document 
 ### Relations
