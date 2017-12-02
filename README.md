@@ -21,10 +21,17 @@ part will be used for the interactive part. The use-cases are:
     - Spring Mongo
 
 # Introduction MongoDB
-## Scheme Design
-### When to use an embedded document 
-### Relations
+This is an introduction into the document store; MongoDB. The main topic is designing a MongoDB database. The topic is split up into two parts:
 
+- Scheme Design
+- Indexes
+
+## Scheme Design
+---
+When it comes to scheme design, you will have a few things you can do when designing a [MongoDB](https://www.mongodb.com/). The following sections will contain examples from the MongoDB website.
+
+### Relations
+---
 #### One-to-One
 Consider that there are two collections, E.g. person and address. This would be the way to do it in a relational database. In MongoDB the user can embed data into other documents (see example 2).
 
@@ -225,11 +232,3 @@ Once you’ve decided on the overall structure of the data, then you can, if you
 
 ## Indexes
 
-
-
-# Setting up a MongoDB connection
-
-# MongoDB Driver vs Frameworks
-## MongoDB Driver
-## Morphia (from MongoDB)
-## Spring Mongo

@@ -1,6 +1,20 @@
 # Setup
-Before we start a few things need to be setup. The most important one is creating a MongoDB container in docker. This is done by doing the following commands:
+Before we start a few things need to be setup. The most important one is creating a MongoDB container in docker. This can be done by using the docker commands or if you prefer a user interface; Kitematic.
 
+## Using Kitematic
+---
+1. Start Kitematic.
+2. Type in "mongo" into the search bar.
+3. Choose the "official mongo" and press "CREATE".
+4. Select the container on the left side.
+5. Press settings on the upper right side.
+6. Change the "NAME" to "my_mongodb", dont forget to press "SAVE".
+7. Right top corner press "Hostname/Ports".
+8. Change the "PUBLISHED IP:PORT" to "localhost:37017", dont forget to press "SAVE".
+9. The server will reboot and you are good to go!
+
+## Using Docker Command Line
+---
 **1. The next step will pull the latest mongo image from docker.**
 ```sh
 $ docker pull mongo
@@ -39,4 +53,17 @@ $ docker kill my_mongodb
 $ docker rm my_mongodb
 ```
 
-Okay the MongoDB container is ready to be used. Now the project located in repository "MongoDB"
+## Assignment
+---
+
+Okay the MongoDB container is ready to be used. The project is located at the repository ["sebivenlo/MongoDB"](https://github.com/sebivenlo/MongoDB/).
+
+The assignment is divided into three separate parts. Each part is different framework. You are going to implement CRUD (create, read, update, and delete) using three different database clients. The chosen frameworks are:
+
+1. [MongoDB driver](https://mongodb.github.io/mongo-java-driver/)
+2. [Spring Data MongoDB](https://projects.spring.io/spring-data-mongodb/)
+3. [Morphia](https://mongodb.github.io/morphia/)
+
+Another notable framework is [Google Guice](https://github.com/google/guice), this framework is used for injecting Morphia and the MongoDB Driver. Spring Data Mongo has an own way of injecting the client.
+
+Checkout the repository and navigate to the "assignment" directory. Now open the project, this can be done by opening it in your idea of choice (preferably notepad++, just kidding). The first thing you want to do is build it with maven dependencies, once that is done, open the TODO's and start hacking. To check if your code is valid you can run the tests thats associated to each assignment.
