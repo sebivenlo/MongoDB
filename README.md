@@ -7,9 +7,9 @@ part will be used for the interactive part. The use-cases are:
 
 - Pros and cons for scheme less databases
 - Getting data without complex joins
-- Framework for easier database access
+- Frameworks for easier database access
 
-# Content Workshop
+# Contents Workshop
 
 - Introduction MongoDB
     - Scheme Design
