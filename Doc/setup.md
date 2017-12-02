@@ -2,7 +2,7 @@
 Before we start a few things need to be setup. The most important one is creating a MongoDB container in docker. This can be done by using the docker commands or if you prefer a user interface; Kitematic.
 
 ## Using Kitematic
----
+
 1. Start Kitematic.
 2. Type in "mongo" into the search bar.
 3. Choose the "official mongo" and press "CREATE".
@@ -14,7 +14,7 @@ Before we start a few things need to be setup. The most important one is creatin
 9. The server will reboot and you are good to go!
 
 ## Using Docker Command Line
----
+
 **1. The next step will pull the latest mongo image from docker.**
 ```sh
 $ docker pull mongo
@@ -54,7 +54,6 @@ $ docker rm my_mongodb
 ```
 
 ## Assignment
----
 
 Okay the MongoDB container is ready to be used. The project is located at the repository ["sebivenlo/MongoDB"](https://github.com/sebivenlo/MongoDB/).
 
