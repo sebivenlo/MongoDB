@@ -18,6 +18,6 @@ part will be used for the interactive part. The use-cases are:
 - MongoDB Driver vs Frameworks
     - MongoDB Driver
     - Morphia (from MongoDB)
-    - Spring Mongo
+    - Spring Data Mongo
 
 To get additional information and start with the exercises go to [MongoDB Wiki](https://github.com/sebivenlo/MongoDB/wiki)
