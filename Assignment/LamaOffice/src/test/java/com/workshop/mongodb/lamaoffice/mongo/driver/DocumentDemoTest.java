@@ -33,10 +33,10 @@ public class DocumentDemoTest {
 
     public DocumentDemoTest() {
         /*
-        * Guice.createInjector() takes your Modules, and returns a new Injector
-        * instance. Most applications will call this method exactly once, in their
-        * main() method.
-        */
+         * Guice.createInjector() takes your Modules, and returns a new Injector
+         * instance. Most applications will call this method exactly once, in their
+         * main() method.
+         */
         Injector injector = Guice.createInjector(new BasicModule());
         Properties prop = injector.getInstance(PropertyContext.class).getProperties();
 
@@ -70,6 +70,51 @@ public class DocumentDemoTest {
     @After
     public void tearDown() {
         collection.drop();
+    }
+
+
+    @Test
+    public void addDocumentToMongoDBStrict() throws Exception {
+
+        dd.addDocumentToMongoDB(e1);
+
+        Document d = collection.find(eq("name", e1.getName())).first();
+
+        Field[] fields = e1.getClass().getDeclaredFields();
+
+        for (Field f : fields) {
+            f.setAccessible(true);
+
+            Object value = d.get(f.getName());
+            Object result = f.get(e1);
+
+            if (result instanceof Address) {
+                Address a = (Address) result;
+                Document b = (Document) value;
+                Iterator<Map.Entry<String, Object>> itAdd = b.entrySet().iterator();
+                while (itAdd.hasNext()) {
+                    Map.Entry<String, Object> tempB = itAdd.next();
+                    Field f1 = a.getClass().getDeclaredField(tempB.getKey());
+                    f1.setAccessible(true);
+                    Object o1 = f1.get(a);
+                    assertEquals("Missing field" + f1.getName() ,o1, tempB.getValue());
+                }
+                continue;
+            }
+
+            if (result instanceof Set) {
+                Set<ObjectId> s = (Set<ObjectId>) result;
+                ArrayList b = (ArrayList) value;
+                for (Object oimate : b) {
+                    assertTrue("Missing field",s.contains(oimate));
+                }
+                continue;
+            }
+
+
+            assertEquals("Missing field"  ,value, result);
+        }
+
     }
 
     @Test
