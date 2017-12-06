@@ -1,5 +1,9 @@
 # MongoDB
 
+@Authors
+-[https://github.com/Appeltaartu)
+-[https://github.com/winstonnolten)
+
 To show you the power of mongodb we are going to explain
 what mongodb can do in specific use-cases. The first part
 will be used to explain how mongo “works” and the second
